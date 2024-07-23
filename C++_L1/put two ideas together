@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//it's countr whith spacific word you put and sum even&odd  num you put :)// 
+
+
+	int sum = 0, oddsum = 0, evensum = 0;
+	//int oddsum = 0;
+	//int evensum = 0;
+
+	for (int count = 1; count <= 3; count++)
+	{   
+		int userinput = 0;
+		cout << "plese  enter number\n";
+		cin >> userinput;
+		cout << " \n\n allah akbr-" << count;
+		cout << "\n\n user input is" << userinput;
+		
+		sum = sum + userinput;
+		cout << "\n now sum is";
+
+		if (userinput % 2 == 0)
+			evensum = evensum + userinput;
+		else
+			oddsum = oddsum + userinput;
+
+	}
+
+	cout << "\n\n total even sum is " << evensum;
+	cout << "\n\n total odd sum is " << oddsum;
+
+	cout << "\n\n total sum is " << sum;
+
+
+
+
+
+}
