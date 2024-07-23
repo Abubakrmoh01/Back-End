@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int digit, revers = 0, m, number;
+	cout << "enter number :";
+	cin >> number;
+	m = number;
+	while (number>0)
+	{
+		digit = number % 10;
+		number /= 10;
+		revers = revers * 10 + digit;
+
+	}
+	cout << "reversing of the num " << m << " is " << revers;
+
+}
