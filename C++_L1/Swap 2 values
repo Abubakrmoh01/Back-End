@@ -1,0 +1,31 @@
+#include <iostream>
+
+int main()
+{
+   
+
+
+    std::cout << "plese enter valiabl 1: ";
+    auto var1 = 6;
+    std::cin >> var1;
+
+
+    std::cout << "plese enter valiabl 2: ";
+    auto var2 = 4;
+    std::cin >> var2;
+
+    std::cout << "Values before swap\n ";
+    std::cout << "valibl 1 is" << var1 <<"\n";
+    std::cout << "valibl 2 is" << var2 <<"\n";
+
+    auto var3 { 0 };
+    var3 = var2;
+    var2 = var1;
+    var1 = var3;
+    std::cout << "Values After swap\n";
+
+    std::cout << "valibl 1 is" << var1 << "\n";
+    std::cout << "valibl 2 is" << var2 <<"\n";
+
+
+}
