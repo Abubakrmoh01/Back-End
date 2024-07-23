@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    //WELCOM MASSAGE
+    cout << "welcom to calck program\n";
+
+    //ASK USER TO ENTER VALUE
+    cout << "plese enter student marke\n";
+    //deklear variable
+    float Studentmark{ 0 };
+    //take value from user
+    cin >> Studentmark;
+
+    if (Studentmark < 50)
+        cout << "fiald";
+
+    else if (Studentmark > 50 && Studentmark <= 65)
+        cout << "fair";
+    else if (Studentmark > 65 && Studentmark <= 75)
+        cout << "good";
+    else if (Studentmark > 75 && Studentmark < 85)
+        cout << "very good";
+    else if (Studentmark >= 85)
+        cout << "excelnt";
+}
