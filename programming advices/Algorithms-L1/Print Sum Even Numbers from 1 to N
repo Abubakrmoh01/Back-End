@@ -3,10 +3,10 @@ static void Main(string[] args)
             Console.Write("Enter number: ");
             int number = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(sumOddNumbers(number));
+            Console.WriteLine(sumEvenNumbers(number));
         }
 
-static int sumOddNumbers(int number)
+static int sumEvenNumbers(int number)
         {
             int result = 0;
             for (int i = 1; i <= number; i++)
