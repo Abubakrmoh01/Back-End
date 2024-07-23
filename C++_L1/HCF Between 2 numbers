@@ -1,0 +1,54 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void PrintMassege(string  massege)
+{
+                       cout << massege<<endl;
+}
+
+int HcfNumber(int smallnumber, int bignumber)
+{
+    int result = 0;
+    for (int i = 1; i <= bignumber; i++)
+    {
+        if (smallnumber% i == 0 && bignumber%i == 0)
+        result = i;
+    }
+    return result;
+}
+
+int main()
+{
+    PrintMassege("welcom to Hcf programe\n");
+    char key='w';
+    while(key!='x')
+    {
+        PrintMassege("plese enter first number");
+        int firstnumber{ 0 };
+        cin >> firstnumber;
+
+        PrintMassege("plese enter scond number");
+        int scondtnumber{ 0 };
+        cin >> scondtnumber;
+
+        int Hcf{ 0 };
+
+        if (firstnumber > scondtnumber)
+            Hcf = HcfNumber(scondtnumber, firstnumber);
+        else if (firstnumber == scondtnumber)
+        {
+            PrintMassege("plese enter defferent numbrs");
+            continue;
+        }
+        else
+            Hcf = HcfNumber(firstnumber, scondtnumber); 
+        cout << "HCF:" << Hcf << "\n";
+
+        PrintMassege("press any key");
+        cin >> key;
+    }
+ 
+}
+
