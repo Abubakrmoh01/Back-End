@@ -1,0 +1,52 @@
+#include <iostream>
+#include"car.h"
+using namespace std;
+
+int main()
+{
+	car c1("hond", 2020, "black");
+	cout << "this car made by  " << c1.Get_Maker ()<< "\n";
+	cout << "this car model is " << c1.Get_Model() << "\n";
+
+
+	car c2("toyouta", 2021, "red");
+	cout << "this car made by  " << c2.Get_Maker() << "\n";
+	cout << "this car model is " << c2.Get_Model() << "\n";
+
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+//////////////////// car Class .h//////////////////////////////////////////////
+#include "car.h"
+
+void car::Set_Maker(string m)
+{
+	maker = m;
+}
+
+string car::Get_Maker()
+{
+	return maker;
+}
+
+void car::Set_Model(int m)
+{
+	model = m;
+}
+
+int car::Get_Model()
+{
+	return model;
+}
+
+car::car(string m, int mod, string c):maker(m),model(mod),color(c)
+{
+
+}
+
+car::~car()
+{
+	cout << "good bye\n";
+}
