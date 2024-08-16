@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+#include"string"
+#include<cmath>
+void ReadArrayData(int Arr[100], int& length)
+{
+    cout << "plese enter How many numbers you want ? 1 to 100 ? \n";
+    cin >> length;
+    for (int  i = 0; i <= length-1; i++)
+    {
+        cout << "plese enter number " << i + 1 << endl;
+        cin >> Arr[i];
+    }
+}
+void PrintArrayData(int Arr[100], int length)
+{
+    for (int  i = 0; i <= length-1; i++)
+    {
+        cout << "Number[" << i + 1 << "] : " << Arr[i] << endl;
+    }
+}
+int CalacSumData(int Arr[100], int length)
+{
+    int Sum=0;
+
+    for (int i = 0; i <= length-1; i++)
+    {
+        Sum += Arr[i];
+    }
+    return Sum;
+}
+float CalcAvaregeData(int Arr[100], int length)
+{
+    return (float)CalacSumData(Arr, length) / length;
+}
+
+
+
+int main()
+{
+    int Arr[100], lenght=0;
+    ReadArrayData(Arr, lenght);
+    PrintArrayData(Arr, lenght);
+
+
+    cout << "**************************************************"<<endl;
+    cout << "Sum = " << CalacSumData(Arr, lenght) << endl;
+    cout << "Avarage = " << CalcAvaregeData(Arr, lenght) << endl;
+
+    return 0;
+}
