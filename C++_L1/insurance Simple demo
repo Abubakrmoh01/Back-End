@@ -1,0 +1,27 @@
+
+
+#include <iostream>
+
+using namespace std;
+int main()
+{
+     cout << "  welcome \n";
+
+     char marital, gender;
+     int age;
+
+     cout << "plese enter your marital\n";
+     cin >> marital;
+
+      cout << "plese enter your gender\n";
+      cin >> gender;
+
+      cout << "plese enter your age\n";
+      cin >> age;
+
+      if (marital == 'm' || (marital == 's' && gender == 'm' && age > 30) || (marital == 's' && gender == 'f' && age > 25))
+          cout << "you will insurance\n";
+      else
+          cout << "you will not insurance\n ";
+
+}
