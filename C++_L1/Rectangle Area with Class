@@ -1,0 +1,56 @@
+
+
+#include <iostream>
+using namespace std;
+
+class recrtangle
+{
+    private:
+        float length;
+        float width;
+
+    public:
+        void setLength(float l)
+        {
+            if (l >= 0)
+                length = l;
+            else
+                cout << "error, plese enter positive value";
+        }
+
+        float getlenth()
+        {
+            return length;
+        }
+
+        void setwidth(float w)
+        {
+            if (w >= 0)
+                width = w;
+            else
+                cout << "error, plese enter positive value";
+        }
+
+        float getlwidth()
+        {
+            return width;
+        }
+
+        float getArea()
+        {
+            return length * width;
+        
+        }
+
+
+};
+
+
+
+int main()
+{
+    recrtangle box;
+    box.setLength(40.5);
+    box.setwidth(30.6);
+    cout << "the rectangle area is " << box.getArea() << "\n";
+}
