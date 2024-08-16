@@ -1,0 +1,244 @@
+#include <iostream>
+using namespace std;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////  FUNCTION TO CHECK PRIME OR NOT  ////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Prime(int number)
+{
+	int flage = 0;
+	cout << "enter number : ";
+	cin >> number;
+	for (int i = 2; i <= number; i++)
+	{
+		if (number % i == 0)
+			flage = 0;
+		break;
+	}
+	if (flage==1)
+	{
+		cout << number << " << IS prime number " << "\n";
+	}
+	else
+	
+		cout << number << " IS NOT prime number \n";
+	return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// FUNCTION TO CHECK PERFECT OR NOT ////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Perfect(int number)
+{
+	int sum = 0, m=0;
+	cout <<  "enter number : ";
+	cin >> number;
+	for (int i = 1; i < number; i++)
+	{
+		sum += i;
+	}
+	if (sum == m)
+		cout << number << " IS perfect number \n";
+	else
+	
+		cout << number << " IS NOT perfect number \n";
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// FUNCTION TO CONVERT NOMBERS AS WORDS ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Convert(int number)
+{
+	int reversing=0, m, digit;
+	cout << " enter number : ";
+	cin >> number;
+	while (number>0)
+	{
+		digit = number % 10;
+		number /= 10;
+		reversing = reversing * 10 + digit;
+	}
+	while (reversing>0)
+	{
+		m = reversing%10;
+		reversing /= 10;
+		switch (m)
+		{
+		case 0:
+			cout << "zero";
+			break;
+		case 1:
+			cout << "one";
+			break;
+		case 2:
+			cout << "two";
+			break;
+		case 3:
+			cout << "three";
+			break;
+		case 4:
+			cout << "four";
+			break;
+		case 5:
+			cout << "five";
+			break;
+		case 6:
+			cout << "six";
+			break;
+		case 7:
+			cout << "seven";
+			break;
+		case 8:
+			cout << "eight";
+			break;
+		case 9:
+			cout << "nine";
+			break;
+		case 10:
+			cout << "ten";
+			break;
+		}
+		
+	}
+   cout << endl;
+   return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// FUNCTION TO check number even or odd ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Even_or_Odd(int number)
+{
+	cout << " enter number : ";
+	cin >> number;
+	if (number % 2 == 0)
+		cout << number << " is EVEN number \n";
+	else
+		cout << number << " is Odd number \n";
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// FUNCTION TO FIND FACTORIAL OF NUMBER ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Factorial(int number)
+{
+	int factorial = 1;
+	cout << "enter number : ";
+	cin >> number;
+	for (int i = 1; i <= number; i++)
+	{
+      factorial *= i;
+	}
+	cout << " Fctorail of :" << number << " IS : " << factorial << "\n";
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// FUNCTION TO reversing of number ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Reversing(int number)
+{
+	int digit = 0, reversing=0, m;
+	cout << " enter number : ";
+	cin >> number;
+	m = number;
+	while (number>0)
+	{
+		digit = number % 10 == 0;
+		number /= 10;
+		reversing = reversing * 10 + digit;
+	}
+	cout << " Reversing of :" << m << " IS: " << reversing << "\n";
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////FUNCTION TO check if number plindrom or Not////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int Palindrom(int number)
+{
+	int digit = 0, reversing=0, m;
+	cout << " enter number : ";
+	cin >> number;
+	m = number;
+	while (number>0)
+	{
+		digit = number % 10 == 0;
+		number /= 10;
+		reversing = reversing * 10 + digit;
+	}
+	if (m == reversing)
+	{
+		cout << endl << m << " : is palindrom number \n";
+    }
+	else
+	
+		cout << endl << m << " : is NOTpalindrom number \n";
+	
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////   FUNCTION TO FIND FACTORS OF NUMBER  ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int FACTORS(int number)
+{
+	int factors;
+	cout << " enter number: ";
+	cin >> number;
+	cout << "the FACTORS of number : " << number << "\n";
+	for (int i = 1; i < number; i++)
+	{
+		if (number % i == 0)
+			cout << i << "  ";
+	}
+	cout << endl;
+	return 0;
+}
+
+int main()
+{
+	int prime, number = 0, perfect, option, convert, even_odd, factorail, reversing, palindrom, factors;
+	cout << " Hello sir, choose what you want to do from this list \n\n";
+	
+		do {
+
+			cout << " 1- check if number Primer or not               2- check if  number Perfect or not \n \n"; 
+		    cout << " 3- Convert Number as Words                 4- check if  number Even or Odd \n \n"; 
+		    cout << " 5- To Find Factorial Of Number \n \n";
+		    cout << " 6- To Find Reversing of Number \n \n";
+			cout << " 7- To Check if Number Palindrom or Not \n \n";
+			cout << " 8- To Find Factors of Number \n \n";
+			cout << " 9- To Exit from Program \n \n";
+			cout << " Your Option : ";
+			cin >> option;
+			cout << " \n \n";
+			switch (option)
+			{
+			case 1:
+				prime = Prime(number);
+				break;
+			case 2:
+				perfect = Perfect(number);
+				break;
+			case 3:
+				convert = Convert(number);
+				break;
+			case 4:
+				even_odd = Even_or_Odd(number);
+				break;
+			case 5:
+				factorail = Factorial(number);
+				break;
+			case 6:
+				reversing = Reversing(number);
+				break;
+			case 7:
+				palindrom = Palindrom(number);
+				break;
+			case 8:
+				factors = FACTORS(number);
+			}
+			if (option > 9 || option < 1)
+				cout << " WRONGING MASSAGE : CHOSE CORRECT OPTION \n \n";
+			cout << " \n \n-------------- ---------- \n \n";
+		} while (option != 9);
+
+		system("pause");
+		return 0;
+}
+
