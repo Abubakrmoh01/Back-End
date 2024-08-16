@@ -1,0 +1,31 @@
+
+#include <iostream>
+using namespace std;
+int main()
+{
+
+    // welcom massege
+    cout << " welcom to even and odd checker \n";
+    
+    cout << "plese enter an integer value\n";
+    //declear valiables
+    int UserIntegerValue{ 0 };
+
+    //take input from user
+    cin >> UserIntegerValue; 
+
+    if (UserIntegerValue <= 0)
+        cout << "do not enter zero or nagativ ";
+
+
+    else
+    {
+        if (UserIntegerValue % 2 == 0)
+            cout << "we have even number";
+        else
+
+            cout << "we have odd number";
+
+    }
+    
+}
