@@ -1,0 +1,40 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+struct stPiggyBankcontenet { int pennies, nickles, dimes, Quarters, Dollars; };
+stPiggyBankcontenet readPiggyBankcontenet()
+{
+
+	stPiggyBankcontenet PiggyBankcont;
+	cout << "enter total a pennies" << endl;
+	cin >> PiggyBankcont.pennies;
+
+	cout << "enter nickles" << endl;
+	cin >> PiggyBankcont.nickles;
+	cout << "enter dimes"  << endl;
+	cin >> PiggyBankcont.dimes;
+	cout << "enter Quarters"  << endl;
+	cin >> PiggyBankcont.Quarters;
+	cout << "enter Dollars"  << endl;
+	cin >> PiggyBankcont.Dollars;
+	return PiggyBankcont;
+}
+int calcuTotalpennis(stPiggyBankcontenet PiggyBankcont)
+{
+	int Totalpennis=0;
+
+	Totalpennis = PiggyBankcont.pennies * 1 + PiggyBankcont.nickles * 5 + PiggyBankcont.dimes * 10 + PiggyBankcont.Quarters * 25 + PiggyBankcont.Dollars * 100;
+	return Totalpennis;
+}
+
+int main()
+{
+
+int Totalpennis = calcuTotalpennis(readPiggyBankcontenet());
+cout << "totale pennise  = " << Totalpennis << endl; 
+cout << "totale dallors  = " << (float)Totalpennis/100 << endl;
+
+ system("pause>0");
+	return 0;
+}
