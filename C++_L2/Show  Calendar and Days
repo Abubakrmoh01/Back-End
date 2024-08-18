@@ -1,0 +1,115 @@
+#pragma warning(disable : 4996);
+#include <iostream>
+using namespace std;
+
+
+
+bool IsaleapYear(short Year)
+{
+	return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
+short DayofWeekOrder(short day, short month, short year)
+{
+	short a, y, m;
+	a = (14 - month) / 12;
+	y = year - a;
+	m = month + (12 * a) - 2;
+	return (day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+}
+short NumofdayInmonth(short month, short Year)
+{
+	if (month < 1 || month>12)
+		return 0;
+	int numofdays[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	return (month == 2) ? (IsaleapYear(Year) ? 29 : 28) : numofdays[month - 1];
+}
+short NumofdayFormTheBeginginoftheyear(short month, short Year, short day)
+{
+	short TotalDays = 0;
+	for (int i = 1; i <= month-1; i++)
+	{
+		TotalDays += NumofdayInmonth(i, Year);
+	}
+	TotalDays += day;
+	return TotalDays;
+}
+
+string monthshortnam(short monthNumber)
+{
+	string months[12] = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "Aug", "sep", "oct", "nov", "dec" };
+	return (months[monthNumber - 1]);
+}
+void printMonthClender(short month, short year)
+{
+	int numofdays;
+	int current = DayofWeekOrder(1, month, year);
+	numofdays = NumofdayInmonth(month, year);
+	printf("\n----------------%s------------------\n\n",monthshortnam(month).c_str());
+	printf("  sun  mon  tue  wed  thu  fri  sat \n");
+	int i;
+	for ( i = 0; i < current; i++)
+	{
+		printf("     ");
+	}
+	for (int j = 1; j <= numofdays; j++)
+	{
+		printf("%5d", j);
+
+		if (++i == 7)
+		{
+			i = 0;
+			printf("\n");
+		}
+	}
+
+	printf("\n-------------------------------------\n");
+
+}
+
+string dayshortname(short dayofweekorder)
+{
+	string arrdayname[] = { "sun","mon", "tue", "wed", "thu", "fri","sat" };
+	return arrdayname[dayofweekorder];
+}
+short ReadYear()
+{
+	short y;
+	cout << "\nEnter a Year to check = "; 
+	cin >> y;
+	return y;
+}
+short ReadMonth()
+{
+	short m;
+	cout << "\nEnter a month to check = ";
+	cin >> m;
+	return m;
+}
+
+short Readday()
+{
+	short d;
+	cout << "\nEnter a day to check = ";
+	cin >> d;
+	return d;
+}
+
+int main()
+{
+
+   short year = ReadYear();
+   short month = ReadMonth(); 
+   short day = Readday();
+
+  cout <<"\n\Date         :" << day << "/" << month << "/" << year;
+  cout <<"\nDay Order     :" << DayofWeekOrder(day, month, year);
+  cout<<"\n Day Name      :"<<dayshortname( DayofWeekOrder(day, month, year));
+  cout << "\n the number of days from the bigging of the year is :" << NumofdayFormTheBeginginoftheyear(month, year, day)<<"\n\n";
+  printMonthClender(month, year);
+
+
+
+	system("pause>0");
+	return 0;
+}
