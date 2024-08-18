@@ -1,3 +1,9 @@
+
+#pragma warning(disable : 4996);
+#include <iostream>
+using namespace std;
+
+
 bool IsaleapYear(short Year)
 {
 	return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
