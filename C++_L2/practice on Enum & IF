@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum enweekday{sun=1,mon=2,tues=3,wed=4,thur=5,fri=6,sat=7};
+void ShowWeekDay()
+{
+ cout << "*****************************************\n";
+ cout << "\t\tWEEK- DAYS\n";
+ cout << "*****************************************\n";
+    cout << "(1)sunday\n";
+    cout << "(2)monday\n";
+    cout << "(3)tuseday\n";
+    cout << "(4)wedensday\n";
+    cout << "(5)thurssay\n";
+    cout << "(6)friday\n";
+    cout << "(7)saterday\n";
+ cout << "****************************************\n";
+ cout << "Enter day number ? \n";
+
+}
+
+enweekday ReadWeekday()
+{
+    enweekday weekday;
+    int wd;
+    cin >> wd;
+    return (enweekday)wd;
+}
+string GetWeekDayname(enweekday weekday)
+{
+    switch (weekday)
+    {
+    case sun:
+        return "sunday";
+        break;
+    case mon:
+        return "monday";
+
+        break;
+    case tues:
+        return "tuseday";
+        break;
+    case wed:
+        return "wedensday";
+
+        break;
+    case thur:
+        return "thursday";
+
+        break;
+    case fri:
+        return "friday";
+
+        break;
+    case sat:
+        return "saterday";
+
+        break;
+    default:
+        return "NOT A WEEK DAY!";
+
+        break;
+    }
+
+}
+
+int main()
+{
+   
+
+    ShowWeekDay();
+    cout << "today is " << GetWeekDayname(ReadWeekday()) << endl;
+
+
+    return 0;
+
+
+}
