@@ -1,0 +1,81 @@
+bool IsaleapYear(short Year)
+{
+	return (Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+short ReadYear()
+{
+	short y;
+	cout << "\nEnter a Year to check = ";
+	cin >> y;
+	return y;
+}
+short ReadMonth()
+{
+	short m;
+	cout << "\nEnter a month to check = ";
+	cin >> m;
+	return m;
+}
+short NumofdayInAYear(short Year)
+{
+	return IsaleapYear(Year) ?  366:365 ;
+}
+short NumofHourInAYear(short Year)
+{
+	return NumofdayInAYear(Year) *24;
+}
+int NumofminutInAYear(short Year)
+{
+	return NumofHourInAYear(Year) *60;
+}
+int NumofsecondInAYear(short Year)
+{
+	return NumofminutInAYear(Year) *60;
+}
+
+   
+
+
+short NumofdayInmonth(short month, short Year)
+{
+	if (month < 1 || month>12)
+		return 0;
+	int numofdays[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	return (month == 2) ? (IsaleapYear(Year) ? 29 : 28) : numofdays[month - 1];
+}
+
+short NumofHourInmonth(short month, short Year)
+{
+	return NumofdayInmonth(month, Year) * 24;
+}
+int NumofminutInmonth(short month, short Year)
+{
+	return NumofHourInmonth(month, Year) * 60;
+}
+int NumofsecondInmonth(short month, short Year)
+{
+	return NumofminutInmonth(month, Year) * 60;
+}
+
+
+int main()
+{
+   short year=ReadYear();
+   short month = ReadMonth();
+	cout << "\n num of days in year [" << year << "] is "<<NumofdayInAYear(year);
+	cout << "\n num of hours in year [" << year << "] is " << NumofHourInAYear(year);
+	cout << "\n num of days in year [" << year << "] is " << NumofminutInAYear(year);
+	cout << "\n num of days in year [" << year << "] is " << NumofsecondInAYear(year);
+
+	cout << "\n\n\n num of days in month [" << month << "] is " << NumofdayInmonth(month,year);
+	cout << "\n num of hours in month [" << month << "] is " << NumofHourInmonth(month, year);
+	cout << "\n num of days in month [" << month << "] is " << NumofminutInmonth(month, year);
+	cout << "\n num of days in month [" << month << "] is " << NumofsecondInmonth(month, year);
+
+
+	system("pause>0");
+	return 0;
+}
+
+
+
