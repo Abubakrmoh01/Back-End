@@ -1,0 +1,38 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+
+int Readtotalsales() {
+	int totalsales;
+	   cout << "Enter  totalsales : ";
+	   cin >> totalsales;
+	   return totalsales;
+   }
+float Getcommtionrate(float totalsales)
+{
+	if (totalsales >= 1000000)
+		return 0.01;
+	else if (totalsales >= 500000)
+		return 0.02;
+	else if (totalsales >= 100000)
+		return 0.03;
+	else if (totalsales >= 50000)
+		return 0.05;
+	else
+		return 0.00;
+}
+float calcucommtionrate(float totalsales)
+{
+	return Getcommtionrate(totalsales) * totalsales;
+}
+
+int main()
+{
+  float totalsales=Readtotalsales();
+cout << "commtion percentage = "<<Getcommtionrate(totalsales) << endl;
+cout << "totale commtion  = " << calcucommtionrate(totalsales) << endl;
+
+system("pause>0");
+	return 0;
+}
