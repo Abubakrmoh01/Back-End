@@ -1,0 +1,172 @@
+#include <iostream>
+#pragma warning (disable :4996)
+#include<string>
+#include<ctime>
+#include<vector>
+#include<iomanip>
+#include<cstdio>
+#include"myfunctions.h"
+#include"myprocedures.h"
+#include<fstream>
+using namespace std;
+using namespace myfunctions;
+using namespace myprocedures;
+
+void PrintEachwordInString(string s1)
+{
+	string delim = " ";
+	cout << "\n your string word are : \n";
+	short pos = 0;
+	string sWord;
+	while ((pos = s1.find(delim)) !=std::string::npos)
+	{
+		sWord = s1.substr(0, pos);
+		if (sWord != "")
+		{
+			cout << sWord<<endl;
+		}
+		s1.erase(0, pos + delim.length());
+	}
+	if (s1 != "")
+	{
+		cout << s1 << endl;
+	}
+
+}
+short countWord(string s1)
+{
+	string delim = " ";
+	cout << "\n your string word are : \n";
+	short pos = 0;
+	short counter = 0;
+	string sWord;
+	while ((pos = s1.find(delim)) != std::string::npos)
+	{
+		sWord = s1.substr(0, pos);
+		if (sWord != "")
+		{
+			counter++;
+		}
+		s1.erase(0, pos + delim.length());
+	}
+	if (s1 != "")
+	{
+		counter++;
+	}
+		return counter;
+
+}
+
+
+
+
+vector<string>SplitsString(string s1, string Delim)
+{
+	vector<string>vString;
+	short pos = 0;
+	string sWord;
+	while ((pos = s1.find(Delim)) != std::string::npos)
+	{
+		sWord = s1.substr(0, pos);
+		if (sWord != "")
+		{
+
+			vString.push_back(sWord);
+		}
+		s1.erase(0, pos + Delim.length());
+	}
+	if (s1 != "")
+	{
+		vString.push_back(s1);
+	}
+	return vString;
+}
+string joinString(vector<string>vString, string Delim)
+{
+	string s1;
+	for (string&s:vString)
+	{
+		s1 = s1 + s + Delim;
+	}
+	return s1.substr(0, s1.length() - Delim.length());
+}
+string Trimleft(string s1)
+{
+	for (short i = 0; i < s1.length(); i++)
+	{
+		if (s1[i] != ' ')
+			return s1.substr(i, s1.length() - 1);
+	}
+	return"";
+}
+string Trimright(string s1)
+{
+	for (short i = s1.length()-1;i>=0; i--)
+	{
+		if (s1[i] != ' ') {
+			return s1.substr(0,i + 1);
+
+		}
+	}
+	return"";
+}
+string Trim(string s1)
+{
+	return(Trimleft(Trimright(s1)));
+
+}
+ 
+string RevereWordsInString(string s1)
+{
+	vector<string>vString;
+	string s2="";
+	vString = SplitsString(s1, " ");
+	
+	vector<string>::iterator iter = vString.end();
+
+	while (iter!=vString.begin())
+	{
+		--iter;
+		s2 += *iter + " ";
+
+	}
+	s2 = s2.substr(0, s2.length() - 1);
+	return s2;
+}
+
+
+int main()
+{
+ string w1 = ReadString();
+cout << " revers string : ";
+cout << " \n "<< RevereWordsInString(w1);*/
+
+
+/*string w = "  medo ali boob       ";
+cout << "\n string= " << w;
+
+cout << "\n trimleft= " << Trimleft(w);
+cout << "\n trimright= " <<Trimright(w);
+cout << "\n trim= " << Trim(w);*/
+
+ vector<string>vString;
+vString = SplitsString(ReadString(), ",");
+cout << "\nTokens = " << vString.size() << endl;
+for (string& s :vString)
+{
+	cout << s << endl;
+}
+
+cout<<"\n\n";
+
+ PrintEachwordInString(ReadString());
+
+cout<<"\n\n";
+
+
+ cout<<countWord(ReadString());
+
+
+	system("pause>0");
+	return 0;
+}
