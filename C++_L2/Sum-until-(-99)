@@ -1,0 +1,37 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+
+float Readnum(string massage)///((((bublic fun))))/////
+{
+	float num = 0;
+	cout << massage << endl;
+	cin >> num;
+	return num;
+}
+float SumNum()
+{
+	int sum = 0, num = 0, counter = 1;
+	do
+	{
+
+		num = Readnum("please enter num " + to_string(counter));
+		if (num == -99)
+		{
+			break;
+		}
+		sum += num;
+		counter++;
+	} while (num != -99);
+
+	return sum;
+}
+
+int main()
+{
+    cout << "Result = " << SumNum() << endl;
+
+system("pause>0");
+	return 0;
+}
