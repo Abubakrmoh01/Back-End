@@ -1,0 +1,62 @@
+string NumToText(int num)
+{
+	if (num == 0)
+	{
+		return "";
+	}
+	if (num >= 1 && num <= 19)
+	{
+		string arr[] = { "","one","two","three" ,"four" ,"five" ,"six" ,"seven" ,"eight" ,"nine" ,"ten" ,"eleven" ,"twelve" ,"thrteen" ,"fourteen" ,"fifteen" ,"sixteen" ,"seventeen" ,"eighteen" ,"nineteen" };
+		return arr[num] + " ";
+	}
+	if (num >= 20 && num <= 99)
+	{
+		string arr[] = { "","","twenty","thirty" ,"fourty" ,"fifty" ,"sixty" ,"seventy" ,"eighty" ,"ninety"   };
+
+		return arr[num/10] + " "+NumToText(num%10);
+	}
+   if (num >= 100 && num <= 199)
+   {
+	return "One Hunderd  " + NumToText(num % 100);
+    }
+   if (num >= 200 && num <= 999)
+   {
+	   return  NumToText(num /100)+"Hundred " +NumToText(num % 100) ;
+   }
+   if (num >= 1000 && num <= 1999)
+   {
+	   return  "One thousand "+ NumToText(num % 1000) ;
+   }
+   if (num >= 2000 && num <= 999999)
+   {
+	   return  NumToText(num / 1000) + "Thousand " + NumToText(num % 1000);
+   }
+   if (num >= 1000000 && num <= 1999999)
+   {
+	   return "One million" + NumToText(num % 1000000);
+   }
+   if (num >= 2000000 && num <= 999999999)
+   {
+	   return  NumToText(num / 1000000) + "millions " + NumToText(num % 1000000);
+   } 
+}
+
+int Readnum()
+{
+	int num;
+	cout << "\n Enter a num ? ";
+	cin >> num;
+	return num;
+}
+
+
+
+
+int main()
+{	
+
+    cout << NumToText(Readnum());
+
+system("pause>0");
+	return 0;
+}
