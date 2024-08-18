@@ -1,0 +1,98 @@
+enum enWeekDays { sat = 1, sun = 2, mond = 3, tuse = 4, wed = 5, thur = 6, frid = 7 };
+int ReadnumInRange(string massage, int from, int to)
+{
+	int num = 0;
+	do
+	{
+		cout << massage << endl;
+		cin >> num;
+	} while (num<from||num>to);
+	return num;
+}
+enWeekDays Readweekdays()
+{
+	return(enWeekDays)ReadnumInRange("please enter day number", 1, 7);
+}
+string getDayofweek(enWeekDays Days)
+{
+	switch (Days)
+	{
+	case sat:
+		return "saturday";
+	
+	case sun:
+		return "sunday";
+
+	case mond:
+		return "monday";
+	case tuse:
+		return "tuseday";
+	case wed:
+		return "wedensday";
+	case thur:
+		return "thursday";
+	case frid:
+		return "friday";
+	default:
+		return "NOT A DAY!";
+	}
+
+
+
+}
+enum  enYearmonth{ jan = 1, feb = 2, mar = 3, apr = 4, may = 5, jun = 6, jul = 7,aug=8,sep=9,octb=10,nov=11,decm=12 };
+int ReadnumInRange(string massage, int from, int to)
+{
+	int num = 0;
+	do
+	{
+		cout << massage << endl;
+		cin >> num;
+	} while (num<from||num>to);
+	return num;
+}
+enYearmonth readmonofyear() {
+
+	return (enYearmonth)ReadnumInRange("please enter num of month", 1, 12);
+}
+string Getmonthofyear(enYearmonth months)
+{
+	switch (months)
+	{
+	case jan:
+		return "january";
+	case feb:
+		return "febrwary";
+	case mar:
+		return "mars";
+	case apr:
+		return "aprel";
+	case may:
+		return "mayo";
+	case jun:
+		return "jun";
+	case jul:
+		return "julay";
+	case aug:
+		return "augest";
+	case sep:
+		return "septemper";
+	case octb:
+		return "october";
+	case nov:
+		return "november";
+	case decm:
+		return "december";
+	default:
+		return "NOT A MONTH!";
+	}
+
+}
+int main()
+{	
+  cout<<getDayofweek(Readweekdays()) << endl;
+  cout << Getmonthofyear(readmonofyear());
+
+system("pause>0");
+	return 0;
+}
