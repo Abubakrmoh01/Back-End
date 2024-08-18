@@ -1,0 +1,34 @@
+#pragma warning(disable : 4996);
+#include <iostream>
+using namespace std;
+
+
+float Readpositivenum(string massage)///((((bublic fun))))/////
+{
+	float num = 0;
+	do {
+
+      cout << massage << endl;
+	  cin >> num;
+	} while (num <= 0);
+	
+	return num;
+}
+float monthlyinstallment(float loanAmount, float howmanymonth)
+{
+	return (float)loanAmount / howmanymonth;
+}
+
+
+int main()
+{	
+float loanAmount = Readpositivenum("please enter laon Amount ");
+float Howmaymonth = Readpositivenum("please enter How many month ");
+
+cout << "\nmonthlyinstallment = " << monthlyinstallment(loanAmount, Howmaymonth);
+cout << endl;
+  
+
+system("pause>0");
+	return 0;
+}
