@@ -1,0 +1,51 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+struct stpersonifo {
+	int age;
+	bool hasdrivinglicin;
+	bool hasrecommendation;
+};
+stpersonifo ReadIfo()
+{
+	stpersonifo info;
+	cout << "Please enter your age: \n";
+	cin >> info.age;
+	cout << "DO you have a driver licens? : \n";
+	cin >> info.hasdrivinglicin;
+	cout << "DO you have a recommendation? : \n";
+	cin >> info.hasrecommendation;
+	return info;
+}
+
+bool Isaccapted(stpersonifo info)
+{
+	if (info.hasrecommendation)
+	{
+		return true;
+	}
+	else
+	{
+	 return (info.age > 21 && info.hasdrivinglicin);
+	}
+}
+
+void PrintReslut(stpersonifo info)
+{
+	if (Isaccapted(info))
+		cout << "\nHired "<<endl;
+	else
+		cout << "\nRejected "<<endl;
+
+}
+
+
+int main()
+{
+
+   PrintReslut(ReadIfo());
+
+ system("pause>0");
+	return 0;
+}
