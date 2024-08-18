@@ -1,0 +1,28 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+float Readpositivenum(string massage)///((((bublic fun))))/////
+{
+	float num = 0;
+	do {
+
+      cout << massage << endl;
+	  cin >> num;
+	} while (num <= 0);
+	
+	return num;
+}
+float calcReminder(float TotalBill, float TotalCashPaid)
+{
+	return  TotalCashPaid-TotalBill ;
+}
+
+int main()
+{
+   
+   printnumtype(Readpositivenum("please enter a positive num ? "));
+
+system("pause>0");
+	return 0;
+}
