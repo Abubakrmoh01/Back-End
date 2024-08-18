@@ -1,0 +1,50 @@
+#pragma warning(disable : 4996);
+#include <iostream>
+using namespace std;
+
+
+struct STtaskduration { int numofdays, numofhours, numofminutes, numofsecond; };
+float Readpositivenum(string massage)///((((bublic fun))))/////
+{
+	float num = 0;
+	do {
+
+		cout << massage << endl;
+		cin >> num;
+	} while (num <= 0);
+
+	return num;
+}
+STtaskduration secondtotaskduration(int totalseconds)
+{
+	STtaskduration Taskduration;
+	const int secondperday = 24 * 60 * 60;
+	const int secondperhour =  60 * 60;
+	const int secondpermint = 60;
+
+	int reminder = 0;
+	Taskduration.numofdays = floor(totalseconds / secondperday);
+	reminder = totalseconds % secondperday;
+	Taskduration.numofhours = floor(reminder / secondperhour);
+	reminder = reminder % secondperhour;
+	Taskduration.numofminutes = floor(reminder / secondpermint);
+	reminder = reminder % secondpermint;
+	Taskduration.numofsecond = reminder;
+	return Taskduration;
+}
+void printtaskduration(STtaskduration taskduration)
+{
+	cout << "\n";
+	cout << taskduration.numofdays << ":" << taskduration.numofhours << ":" << taskduration.numofminutes << ":" << taskduration.numofsecond << "\n";
+
+}
+
+int main()
+{	
+
+int Totalsond = Readpositivenum("please enter Total seconds");
+	printtaskduration(secondtotaskduration(Totalsond));
+
+system("pause>0");
+	return 0;
+}
