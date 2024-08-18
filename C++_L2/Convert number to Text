@@ -1,3 +1,8 @@
+#pragma warning(disable : 4996);
+#include <iostream>
+using namespace std;
+
+
 string NumToText(int num)
 {
 	if (num == 0)
