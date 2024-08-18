@@ -1,0 +1,47 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+enum enOperationType{ADD='+',Sub='-',mul='*',Div='/' };
+float Readnum(string massage)///((((bublic fun))))/////
+{
+	float num = 0;
+	cout << massage << endl;
+	cin >> num;
+	return num;
+}
+enOperationType ReadOPeration()
+{
+	char OT = '+';
+	cout << "enter operation type " << endl;
+	cin >> OT;
+	return (enOperationType)OT;
+
+}
+float calculate(float num1,float num2,enOperationType Optype)
+{
+	switch (Optype)
+	{
+	 case enOperationType::ADD:
+		return num1 + num2;
+	 case enOperationType::Sub:
+		return num1 - num2;
+	 case enOperationType::mul:
+		return num1 * num2;
+	 case enOperationType::Div:
+		return num1 / num2;		
+	 default:
+        return num1 + num2;
+	}
+}
+
+int main()
+{
+    float num1 = Readnum("please enter num1 ?");
+   float num2 = Readnum("please enter num2 ?");
+   enOperationType Optype=ReadOPeration();
+   cout << "Result = " << calculate(num1, num2, Optype) << endl;
+  
+ system("pause>0");
+	return 0;
+}
