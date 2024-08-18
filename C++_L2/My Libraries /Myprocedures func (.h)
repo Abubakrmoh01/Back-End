@@ -1,0 +1,461 @@
+#pragma once
+#include <iostream>
+#include<string>
+#include"myfunctions.h";
+using namespace std;
+namespace myprocedures
+{
+	int RandomNumber(int From, int To)
+	{
+		//Function to generate a random number
+		int randNum = rand() % (To - From + 1) + From;
+		return randNum;
+	}
+
+	void FillMatrixWithrandomNum(int arr[4][4], short Rows, short colm)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < colm; j++)
+			{
+				arr[i][j] = RandomNumber(1, 100);
+
+			}
+
+		}
+	}
+	void FillMatrixWithOrderNum(int arr[4][4], short Rows, short colm)
+	{
+		short counter = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < colm; j++)
+			{
+				counter++;
+				arr[i][j] = counter;
+
+			}
+
+		}
+	}
+	void TransposMatrix(int arr[4][4], int arrTranspose[4][4], short Rows, short colm)
+	{
+		
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < colm; j++)
+			{
+				
+				arrTranspose[i][j] = arr[j][i];
+
+			}
+
+		}
+	}
+	void MultiplyMatrix(int Mat1[4][4], int Mat2[4][4], int MatRuslt[4][4], short Rows, short colm)
+	{
+
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < colm; j++)
+			{
+
+				MatRuslt[i][j] = Mat1[j][i]*Mat2[j][i];
+
+			}
+
+		}
+	}
+	
+	string ColumSperator(int Counter)
+	{
+		if (Counter < 10)
+			return "  ";
+		else
+			return "  ";
+	}
+	void PrintMatrix(int arr[4][4], short Rows, short colm)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < colm; j++)
+			{
+				cout << ColumSperator(3) << arr[i][j] << "   ";
+
+			}
+			cout << "\n";
+		}
+		
+	}
+	int colmsum(int arr[4][4], short Rows, short colmnumber)
+	{
+		int sum = 0;
+		for (short i = 0; i < Rows; i++)
+		{
+			sum += arr[i][colmnumber];
+
+		}
+		return sum;
+	}
+	int Rowsum(int arr[4][4], short Rowsnumber, short colm)
+	{
+		int sum = 0;
+			for (short j = 0; j < colm; j++)
+			{
+				 sum += arr[Rowsnumber][j];
+
+			}
+			return sum;
+	}
+	void PrintEchcolmsum(int arr[4][4], short Rows, short colm)
+	{
+		for (short j = 0; j < colm; j++)
+		{
+
+			cout << " colm " << j + 1 << " sum = " << colmsum(arr, Rows, j) << endl;
+		}
+
+	}
+	void PrintEchRowsum(int arr[4][4], short Rows, short colm)
+	{
+		for (short i = 0; i < Rows; i++)
+		{
+			
+			cout << " Row " << i + 1 << " sum = " << Rowsum(arr, i, colm)<<endl;
+		}
+
+	}
+
+
+
+
+	bool isPerfectNumber(int Number)
+	{
+		int Sum = 0;
+		for (int i = 1; i < Number; i++)
+		{
+			if (Number % i == 0)
+				Sum += i;
+		}
+		return Number == Sum;
+	}
+
+	void PrintPerfectNumbersFrom1ToN(int Number)
+	{
+		for (int i = 1; i <= Number; i++)
+		{
+			if (isPerfectNumber(i))
+			{
+				cout << i << endl;
+			}
+		}
+	}
+	void PrintDigitsInReversedOrder(int Number)
+	{
+		int Remainder = 0;
+		while (Number > 0)
+		{
+			Remainder = Number % 10;
+			Number = Number / 10;
+			cout << Remainder << endl;
+		}
+	}
+	int CountDigitFrequency(short DigitToCheck, int Number)
+	{
+		int FreqCount = 0, Remainder = 0;
+		while (Number > 0)
+		{
+			Remainder = Number % 10;
+			Number = Number / 10;
+			if (DigitToCheck == Remainder)
+			{
+				FreqCount++;
+			}
+		}
+		return FreqCount;
+	}
+	void PrintAllDigitsFrequencey(int Number)
+	{
+		cout << endl;
+		for (int i = 0; i < 10; i++)
+		{
+			short DigitFrequency = 0;
+			DigitFrequency = CountDigitFrequency(i, Number);
+			if (DigitFrequency > 0)
+			{
+				cout << "Digit " << i << " Frequencey is "
+					<< DigitFrequency << " Time(s).\n";
+			}
+		}
+	}
+	void PrintDigits(int Number)
+	{
+		int Remainder = 0;
+		while (Number > 0)
+		{
+			Remainder = Number % 10;
+			Number = Number / 10;
+			cout << Remainder << endl;
+		}
+	}
+	void PrintInvertedNumberPattern(int Number)
+	{
+		cout << "\n";
+		for (int i = Number; i >= 1; i--)
+		{
+			for (int j = 1; j <= i; j++)
+			{
+				cout << i;
+			}
+			cout << "\n";
+		}
+	}
+	void PrintNumberPattern(int Number)
+	{
+		cout << "\n";
+		for (int i = 1; i <= Number; i++)
+		{
+			for (int j = 1; j <= i; j++)
+			{
+				cout << i;
+			}
+			cout << "\n";
+		}
+	}
+	void PrintInvertedLetterPattern(int Number)
+	{
+		cout << "\n";
+		for (int i = 65 + Number - 1; i >= 65; i--)
+		{
+			for (int j = 1; j <= Number - (65 + Number - 1); j++)
+			{
+				cout << char(i);
+			}
+			cout << "\n";
+		}
+	}
+	void PrintLetterPattern(int Number)
+	{
+		cout << "\n";
+		for (int i = 65; i <= 65 + Number - 1; i++)
+		{
+			for (int j = 1; j <= i - 65 + 1; j++)
+			{
+				cout << char(i);
+			}
+			cout << "\n";
+		}
+	}
+	void PrintWordsFromAAAtoZZZ()
+	{
+		cout << "\n";
+		string word = "";
+		for (int i = 65; i <= 90; i++)
+		{
+			for (int j = 65; j <= 90; j++)
+			{
+				for (int k = 65; k <= 90; k++)
+				{
+					word = word + char(i);
+					word = word + char(j);
+					word = word + char(k);
+					cout << word << endl;
+					word = "";
+				}
+			}
+			cout << "\n____________________________\n";
+		}
+	}
+
+	void PrintStringArray(string arr[100], int arrLength)
+	{
+		cout << "\nArray elements:\n\n";
+		for (int i = 0; i < arrLength; i++)
+		{
+			cout << "Array[" << i << "] : ";
+			cout << arr[i] << "\n";
+		}
+		cout << "\n";
+	}
+
+	void ReadArray(int arr[100], int& arrLength)
+	{
+		cout << "\nEnter number of elements:\n";
+		cin >> arrLength;
+		cout << "\nEnter array elements: \n";
+		for (int i = 0; i < arrLength; i++)
+		{
+			cout << "Element [" << i + 1 << "] : ";
+			cin >> arr[i];
+		}
+		cout << endl;
+	}
+	void PrintArray(int arr[100], int arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			cout << arr[i] << " ";
+		cout << "\n";
+	}
+	
+
+	void FillArrayWithRandomNumbers(int arr[100], int& arrLength)
+	{
+		cout << "\nEnter number of elements:\n";
+		cin >> arrLength;
+		for (int i = 0; i < arrLength; i++)
+			arr[i] = RandomNumber(1, 100);
+	}
+	void CopyArray(int arrSource[100], int arrDestination[100], int
+		arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			arrDestination[i] = arrSource[i];
+	}
+	void SumOf2Arrays(int arr1[100], int arr2[100], int arrSum[100], int
+		arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+		{
+			arrSum[i] = arr1[i] + arr2[i];
+		}
+	}
+	void SwapNumbers(int& A, int& B)
+	{
+		int Temp;
+		Temp = A;
+		A = B;
+		B = Temp;
+	}
+	void FillArrayWith1toN(int arr[100], int arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			arr[i] = i + 1;
+	}
+	void ShuffleArray(int arr[100], int arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+		{
+			SwapNumbers(arr[RandomNumber(1, arrLength) - 1],
+				arr[RandomNumber(1, arrLength) - 1]);
+		}
+	}
+
+	void CopyArrayInReverseOrder(int arrSource[100], int arrDestination[100], int arrLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			arrDestination[i] = arrSource[arrLength - 1 - i];
+	}
+	short FindNumberPositionInArray(int Number, int arr[100], int
+		arrLength)
+	{
+		/*This function will search for a number in array and return its
+		index,
+		or return -1 if it does not exists*/
+		for (int i = 0; i < arrLength; i++)
+		{
+			if (arr[i] == Number)
+				return i;// and return the index
+		}
+		//if you reached here, this means the number is not found
+		return -1;
+	}
+
+	bool IsNumberInArray(int Number, int arr[100], int arrLength)
+	{
+		return FindNumberPositionInArray(Number, arr, arrLength) != -1;
+	}
+	void PrintFoundOrNotFound(int Number, int arr[100], int arrLength)
+	{
+		//????? ?? ??????? ??????? ????? ????? ??? ??? ?????? ?? ????? ?? ????? main //
+			cout << "\nNumber you are looking for is: " << Number << endl;
+		if (!IsNumberInArray(Number, arr, arrLength))
+			cout << "No, The number is not found :-(\n";
+		else
+		{
+			cout << "Yes, it is found :-)\n";
+		}
+	}
+	void AddArrayElement(int Number, int arr[100], int& arrLength)
+	{
+		//its a new element so we need to add the length by 1
+		arrLength++;
+		arr[arrLength - 1] = Number;
+	}
+	short ReadNumber()
+	{
+		short num = 0;
+		cout << "enter number";
+		cin >> num;
+		return num;
+	}
+
+	void InputUserNumbersInArray(int arr[100], int& arrLength)
+	{
+		bool AddMore = true;
+		do
+		{
+			AddArrayElement(ReadNumber(), arr, arrLength);
+			cout << "\nDo you want to add more numbers? [0]:No,[1]:yes? ";
+				cin >> AddMore;
+		} while (AddMore);
+	}
+	// Solution #37/2
+	// Resolve Problem 28/2 Copy Array Using (AddArrayElement)
+	void CopyArrayUsingAddArrayElement(int arrSource[100], int
+		arrDestination[100], int arrLength, int& arrDestinationLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			AddArrayElement(arrSource[i], arrDestination,
+				arrDestinationLength);
+	}
+	void CopyOddNumbers(int arrSource[100], int arrDestination[100], int
+		arrLength, int& arrDestinationLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			if (arrSource[i] % 2 != 0)
+			{
+				AddArrayElement(arrSource[i], arrDestination,
+					arrDestinationLength);
+			}
+	}
+	enum enPrimeNotPrime { Prime = 1, NotPrime = 2 };
+	enPrimeNotPrime CheckPrime(int Number)
+	{
+		int M = round(Number / 2);
+		for (int Counter = 2; Counter <= M; Counter++)
+		{
+			if (Number % Counter == 0)
+				return enPrimeNotPrime::NotPrime;
+		}
+		return enPrimeNotPrime::Prime;
+	}
+
+	void CopyPrimeNumbers(int arrSource[100], int arrDestination[100], int
+		arrLength, int& arrDestinationLength)
+	{
+		for (int i = 0; i < arrLength; i++)
+			if (CheckPrime(arrSource[i]) ==enPrimeNotPrime::Prime)
+			{
+				AddArrayElement(arrSource[i], arrDestination,
+					arrDestinationLength);
+			}
+	}
+
+	void CopyDistinctNumbersToArray(int arrSource[100], int arrDestination[100], int SourceLength, int& DestinationLength)
+	{
+		for (int i = 0; i < SourceLength; i++)
+		{
+			if (!IsNumberInArray(arrSource[i], arrDestination,
+				DestinationLength))
+			{
+				AddArrayElement(arrSource[i], arrDestination,
+					DestinationLength);
+			}
+		};
+	}
+
+
+
+
+
+}
