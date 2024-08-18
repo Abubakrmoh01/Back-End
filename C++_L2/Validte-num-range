@@ -1,0 +1,37 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+int Readage() {
+	 int age;
+		cout << "Enter your age : "<<endl;
+		cin >> age;
+		return age;
+	}
+    bool ValidateNumInRange(int num, int from, int to)
+   {
+	 return(num >= from && num<= to);
+   }
+   int readuntilagebetween(int from, int to)
+  {
+	 int age = 0;
+	 do {
+		 age = Readage();
+
+	 } while (!ValidateNumInRange(age, from, to));
+
+	 return age;
+    }
+
+   void printresult(int age)
+   {
+	 cout << "your age is : " << age<<endl;
+   }
+int main()
+{
+   printresult(readuntilagebetween(18, 45));
+  
+system("pause>0");
+	return 0;
+}
+
